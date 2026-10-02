@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fixture App</title>
+  </head>
+  <body>
+    <h1 data-testid="heading">Fixture App</h1>
+
+    <button data-testid="reveal" type="button">Reveal panel</button>
+    <div id="panel" hidden>
+      <p data-testid="panel-text">Panel revealed</p>
+    </div>
+
+    <label for="name">Your name</label>
+    <input id="name" data-testid="name" name="name" placeholder="Your name" />
+    <button data-testid="greet" type="button">Greet</button>
+    <p data-testid="greeting"></p>
+
+    <label for="colour">Colour</label>
+    <select id="colour" data-testid="colour" name="colour">
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+    </select>
+
+    <button data-testid="boom" type="button">Trigger console error</button>
+    <button data-testid="fetch404" type="button">Trigger failed request</button>
+    <button data-testid="disabled" type="button" disabled>Disabled action</button>
+
+    <ul data-testid="list">
+      <li>Alpha</li>
+      <li>Beta</li>
+    </ul>
+
+    <a data-testid="popup" href="/index.html" target="_blank" rel="noopener">Open popup</a>
+    <button data-testid="seed" type="button">Seed storage</button>
+    <button data-testid="alert" type="button">Trigger alert</button>
+    <button data-testid="confirm" type="button">Trigger confirm</button>
+    <button data-testid="prompt" type="button">Trigger prompt</button>
+    <input data-testid="file" type="file" />
+
+    <script>
+      document.querySelector('[data-testid="greet"]').addEventListener('click', () => {
+        const name = document.querySelector('[data-testid="name"]').value;
+        document.querySelector('[data-testid="greeting"]').textContent = `Hello ${name}`;
+      });
+      document.querySelector('[data-testid="reveal"]').addEventListener('click', () => {
+        document.getElementById('panel').hidden = false;
+      });
+      document.querySelector('[data-testid="boom"]').addEventListener('click', () => {
+        console.error('fixture boom');
+      });
+      document.querySelector('[data-testid="fetch404"]').addEventListener('click', () => {
+        fetch('/missing.json').catch(() => {});
+      });
+      // The three dialog buttons record the answer they received, so a test can
+      // tell an accepted confirm from a dismissed one instead of assuming.
+      document.querySelector('[data-testid="alert"]').addEventListener('click', () => {
+        alert('fixture alert');
+        document.body.dataset.alerted = 'yes';
+      });
+      document.querySelector('[data-testid="confirm"]').addEventListener('click', () => {
+        document.body.dataset.confirmed = confirm('fixture confirm') ? 'yes' : 'no';
+      });
+      document.querySelector('[data-testid="prompt"]').addEventListener('click', () => {
+        document.body.dataset.prompt = String(prompt('fixture prompt', 'prefilled'));
+      });
+      document.querySelector('[data-testid="seed"]')?.addEventListener('click', () => {
+        document.cookie = 'fixture=1; path=/';
+        localStorage.setItem('fixture-key', 'fixture-value');
+      });
+    </script>
+  </body>
+</html>

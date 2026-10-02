@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Bộ công cụ trình duyệt",
+    "description": "Điều khiển và kiểm chứng trình duyệt thật: snapshot, thao tác bằng ref, assertion, tab, dialog, lưu đăng nhập, upload, chụp ảnh và gắn vào browser đang chạy qua CDP."
+  }
+}

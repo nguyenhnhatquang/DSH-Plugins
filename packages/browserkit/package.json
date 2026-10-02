@@ -1,0 +1,48 @@
+{
+  "name": "dsh-plugin-browserkit",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Browser tools for DeepSeek Harness agents: drive a real browser to test UI and to automate it — accessibility snapshots, ref-based interaction, assertions, tabs, dialogs, login persistence, uploads, screenshots, and CDP attach to an existing browser.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenhnhatquang/DSH-Plugins.git",
+    "directory": "packages/browserkit"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "browser",
+    "browser-automation",
+    "playwright",
+    "cdp",
+    "ui-testing",
+    "e2e"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.4",
+    "playwright-core": "^1.63.0"
+  }
+}

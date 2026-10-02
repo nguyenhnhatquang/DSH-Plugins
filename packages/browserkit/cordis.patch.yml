@@ -1,0 +1,14 @@
+# Bundle layer contributed by dsh-plugin-browserkit.
+#
+# The row name is the package specifier, so the Loader resolves this plugin's
+# entry module from wherever the profile installed it (the profile's own
+# node_modules for `dsh plugin --profile <name> add <spec>`).
+#
+# No `config` block: every field already defaults to the right value for an
+# agent team, and a patch that restates defaults only hides which values a
+# deployment actually chose. Override fields in the profile's own
+# cordis.patch.yml or the home layer instead.
+
+- insert:
+    - id: browserkit
+      name: 'dsh-plugin-browserkit'

@@ -1,0 +1,13 @@
+{
+  "name": "dsh-plugins",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Monorepo of DeepSeek Harness (dsh) plugins.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "test": "node --test \"packages/*/test/*.test.mjs\"",
+    "dev:overlay": "node scripts/dev-overlay.mjs"
+  }
+}

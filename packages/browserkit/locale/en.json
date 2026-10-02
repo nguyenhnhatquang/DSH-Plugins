@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Browser Kit",
+    "description": "Drive and verify a real browser: snapshots, ref-based actions, assertions, tabs, dialogs, saved logins, uploads, screenshots, and CDP attach to a browser that is already running."
+  }
+}
